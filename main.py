@@ -1,64 +1,48 @@
 import os
 from business.campers import *
-def limpiar_pantalla():
-    os.system('clear' if os.name == 'posix' else 'cls')    
-
-
-def validar_opcion(enunciando,inferior,superior):
-    while True:
-        try:
-            opcion =int(input(enunciando))
-            if opcion>=inferior and opcion<=superior:
-                return opcion
-            else:
-                print(f"Opción no está entre el intervalo de ({inferior}-{superior})")
-        except ValueError:
-            print("Por favor, introduce un número válido. ")
+from commons.menusjp import *
+from commons.utils import *
+from business.trainer import *
 
 campers =[] 
-camper_aprobados=[]        
-campers = crear_campers()
-# #lista de inscritos
-# campers =[] 
-# #lista de campers aprobados
-# camper_aprobados=[]
-# print("Inscripcion de campers ")
+camper_aprobados=[]
+trainers=[]
+while(True):
+    op = menu_principal()
+    if(op == 1):
+        while(True):
+            op = menu_campers()
+            if(op == 1):
+                campers = load_campers_json()
+                campers.append(crear_campers())
+                guardar_json(campers,"w")
+            elif(op == 2):
+                campers = load_campers_json()
+                mostrar_lista_con_diccionarios(campers)
+                input("Oprima cualquier tecla para salir")
+            elif(op ==3):
+                campers=load_campers_json()
+                modificacion_campers()
+            elif(op == 4):
+                print("ADIOS")
+                break
+    if(op == 2):
+        while(True):
+            op=menu_trainers()
+            if(op==1):
+                trainers = load_trainers_json()
+                trainers.append(crear_trainers())
+                guardar_json(trainers,"w")
+            elif(op==2):
+                trainers = load_trainers_json()
+                mostrar_lista_con_diccionarios(trainers)
+                input("Oprima cualquier tecla para salir")
+            elif(op==3):
+                trainers=load_trainers_json()
+                modificacion_trainers()
+    elif(op == 6):
+        break        
 
-# while True:
-#     # [1,2,3]
-#     # {1,2,3,2} = {1,2,3} conjunto - set([1,2,3])
-#     # {"nombre":"Carlos","edad":30} diccionario
-#     #creacion de nuevo usuario.
-#     id = input("Ingrese identificacion: ")
-#     apellido=input("Ingese los 2  apellidos: ")
-#     nombre=input("Ingrese todos los nombres: ")
-#     direccion=input("Ingrese direccion: ")
-#     acudiente=input("Ingrese el nombre completo del acudiente: ")
-#     celular=input("Ingrese el numero de celular: ")
-#     telefono=input("Ingrese numero de telefono: ")
-#     estado="inscrito"
-#     # id:input
-#     # nombre:input
-#     # direccion:input
-#     # acudiente:input
-#     # telefono:input
-#     # estado:input
-#     diccionaario = {
-#         "Identificacion" : id,
-#         "Apellido": apellido,
-#         "Nombre" : nombre,
-#         "Direccion" : direccion,
-#         "Acudiente" : acudiente,
-#         "Telefono" : telefono,
-#         "Celular" : celular,
-#         "Estado": estado
-#         }
-#     campers.append(diccionaario)
-#     print("Ingresar informacion de otro inscrito.")
-#     ingreso=-1
-#     ingreso = int(input("Si desea agregar otro camper escriba 1, si no, escriba 0: "))
-#     if ingreso==0:
-#         break
 print(campers)
 print("Prueba inicial")
 #rutas
@@ -138,34 +122,7 @@ while True:
         
         print("¿Deseas seguir agregando notas a otro camper?")
         seguir=input("Si desea seguir escriba si, de no ser asi, escriba no:")
-## modificar campes
-print("---menu modificacion de camper---")
-ingreseid=input("Ingrese la identificacion del camper: ")
-for camper in campers:
-    if camper["Identificacion"]==id:
-        print("Camper encontrado")
-        print("El camper se encuentra en estado: ",camper,["estado"])
-        print("-------Informacion del camper------")
-        print(camper)
-        print("¿Que opcion desea modificar del camper? ")
-        print( "1.id")
-        print("2.apellido")
-        print("3.nombre")
-        print("4.direccion")
-        print("5.acudiente")
-        print("6.celular")
-        print("7.telefono")
-        print("8.estado")
-        print("9.Salir")
-        op=validar_opcion("Opcion: ",1,9)
-        limpiar_pantalla()
-        if op==1:
-            new_id=input("Ingrese la modificaion: ")
-            camper["identificacion"]==new_id
-        if op==2:
-            new_nombre=input("Ingrese la mmodificacion de los apellidos:")
-    else:
-        print("la idetificaion no ha sido registrada.")
+
 ruta1="Ruta NodeJS"
 ruta2="Ruta Java"
 ruta3="Ruta NetCore"
@@ -198,19 +155,6 @@ Ruta_NetCore=[{"Fundamentos de programacion": ["Introduccion a la algoritmia", "
         "Bases de datos" : ["Mysql", "MongoDb", "Postgresql"],  
         "Backend" : ["NetCore", "Spring Boot", "NodeJS y Express"]}]
 ##Trainers
-#Creacion de traines
-trainers=[ ]
-n_entrenadores=int(input("Ingrese la cantidad de entrenadores que hay disponibles: "))
-for i in range (n_entrenadores):
-    id_entrenador=input("Ingrese el ID: ")
-    apellido_entrenador=input("Ingrese los apellidos del entrenador: ")
-    entrenador=input("ingrese el nombre completo del entrenador"+i, ": ")
-    diccionarioT={
-        "id":id_entrenador,
-        "apellidos":apellido_entrenador,
-        "nombres":entrenador}
-    trainers.append(diccionarioT)
-    break
 ##modificacion de triners
 modificaionT:input("Ingrese el ID: ")
 for trainer in trainers:
@@ -223,17 +167,17 @@ for trainer in trainers:
 
     
 ##Asignacion de entrenadores a las rutas
-for ruta in rutas:
-    if ruta["nombre"] == ruta1 :
-        ruta["entrenador"] = entrenador
-        print(entrenador,"sera el entrenador de",ruta1)
-    if ruta["nombre"] == ruta2 :
-        ruta["entrenador"] = entrenador
-        print(entrenador,"sera el entrenador de",ruta2)
-    if ruta["nombre"] == ruta3 :
-        ruta["entrenador"] = entrenador
-        print(entrenador,"sera el entrenador de",ruta3)
-print(rutas)
+# for ruta in rutas:
+#     if ruta["nombre"] == ruta1 :
+#         ruta["entrenador"] = entrenador
+#         print(entrenador,"sera el entrenador de",ruta1)
+#     if ruta["nombre"] == ruta2 :
+#         ruta["entrenador"] = entrenador
+#         print(entrenador,"sera el entrenador de",ruta2)
+#     if ruta["nombre"] == ruta3 :
+#         ruta["entrenador"] = entrenador
+#         print(entrenador,"sera el entrenador de",ruta3)
+# print(rutas)
     
 #fecha de inicio
 fecha_de_inicio=input("Ingrese la fecha de inicio: Dia/Mes/A帽o")

@@ -25,19 +25,6 @@ def menu_principal():
     print("5. Reportes")
     print("6. Salir")       
     op=validar_opcion("Opcion: ",1,6)
-    if op ==1:
-        menu_campers()
-    if op ==2:
-        menu_trainers()
-    if op ==3:
-        menu_matriculas
-    if op ==4:
-        menu_aulas
-    if op ==5:
-        menu_reportes()
-    else:
-        print("Adios")
-    
     return op
 
 def menu_campers():
