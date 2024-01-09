@@ -35,7 +35,9 @@ while(True):
         while(True):
             op=menu_registro_prueba_inicial()
             if (op==1):
+                camper_aprobados=load_campers_json
                 camper_aprobados.append(registro_prueba_inicial())
+                guardar_json_camper_aprobado()
             elif(op==2):
                 print("ADIOS")
                 break
@@ -130,6 +132,17 @@ while(True):
     if(op==9):
         while(True):
             op=menu_reportes()
-
+            if(op==1):
+                campers=load_campers_json
+                mostrar_lista_con_diccionarios(campers)
+            if(op==2):
+                camper_aprobados=load_camper_aprobado_json(camper_aprobados)
+                mostrar_lista_con_diccionarios(camper_aprobados)
+            if(op==3):
+                trainers=load_trainers_json()
+                mostrar_lista_con_diccionarios(trainers)
+            if(op==4):
+                print("ADIOS")
+                break
     else:
         break

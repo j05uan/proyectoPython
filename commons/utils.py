@@ -37,6 +37,18 @@ def guardar_json_filtros(lista):
         print("Error al decodificar el archivo JSON . El formato podría ser incorrecto.")
     except Exception as e:
         print("Error desconocido:")
+
+def guardar_json_camper_aprobado(lista):
+    try:
+      with open(os.path.join("data", "camper_aprobado.json"), "w") as archivo_json:
+        json.dump(lista, archivo_json, indent=2)
+        #print("La lista de campers ha sido guardada")
+    except FileNotFoundError:
+        print("El archivo no existe. Puede que aún no haya filtros guardados.")
+    except json.JSONDecodeError:
+        print("Error al decodificar el archivo JSON . El formato podría ser incorrecto.")
+    except Exception as e:
+        print("Error desconocido:")
 def guardar_json_aulas(lista):
     try:
       with open(os.path.join("data", "aulas.json"), "w") as archivo_json:
@@ -96,6 +108,15 @@ def guardar_json_horarios(lista):
 def load_trainers_json():
     try:
       with open(os.path.join("data", "trainers.json"), 'r') as archivo_json:        
+        lista = json.load(archivo_json)
+        #print("La lista de trainers ha sido guardada")
+        return lista
+    except Exception as e:
+      print(f"Error al guardar el archivo: {e}")
+
+def load_camper_aprobado_json():
+    try:
+      with open(os.path.join("data", "camper_aprobado.json"), 'r') as archivo_json:        
         lista = json.load(archivo_json)
         #print("La lista de trainers ha sido guardada")
         return lista

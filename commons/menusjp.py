@@ -40,7 +40,15 @@ def menu_campers():
     op=validar_opcion("Opcion: ",1,4)
     return op
     
+def menu_registro_prueba_inicial():
+    limpiar_pantalla()
+    print("--------Menú Prueba Inicial-------")
+    print("1.Registro de prueba")
+    print("2.Salir")
+    op=validar_opcion("Opcion: ",1,2)
+    return op
     
+
 def menu_trainers():
     limpiar_pantalla()
     print("----------- Menú Trainers-----------")
