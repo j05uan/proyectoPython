@@ -29,7 +29,6 @@ def menu_principal():
     print("9. Reportes")
     print("10. Salir")       
     op=validar_opcion("Opcion: ",1,10)
-    return op
 #op=1
 def menu_campers():
     limpiar_pantalla()
@@ -40,16 +39,8 @@ def menu_campers():
     print("4. Salir")
     op=validar_opcion("Opcion: ",1,4)
     return op
-#op=2
-def menu_registro_prueba_inicial():
-    limpiar_pantalla()
-    print("------Registro preuba inicial--------")
-    print("1.Ingresar registro")
-    print("2.Salir")
-    op=validar_opcion("Opcion:",1,2)
-    return op
-#op=3
-
+    
+    
 def menu_trainers():
     limpiar_pantalla()
     print("----------- Menú Trainers-----------")
