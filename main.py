@@ -30,6 +30,7 @@ while(True):
                 campers.append(modificacion_campers())
             elif(op == 4):
                 print("ADIOS")
+                menu_principal()
                 break
     if(op == 2):
         while(True):
@@ -40,6 +41,7 @@ while(True):
                 guardar_json_camper_aprobado()
             elif(op==2):
                 print("ADIOS")
+                menu_principal()
                 break
     if(op == 3):
         while(True):
@@ -55,6 +57,10 @@ while(True):
             elif(op==3):
                 trainers=load_trainers_json()
                 trainers.append(modificacion_trainers())
+            elif(op == 4):
+                print("ADIOS")
+                menu_principal()
+                break
     if(op == 4):
         while(True):
             op=menu_aulas()
@@ -71,6 +77,7 @@ while(True):
                 guardar_json_aulas(aulas)
             else:
                 print("ADIOS")
+                menu_principal()
                 break
     if (op==5):
         while(True):
@@ -89,6 +96,7 @@ while(True):
 
             else:
                 print("ADIOS")
+                menu_principal()
                 break
     if (op==6):
         while(True):
@@ -103,6 +111,7 @@ while(True):
                 input("")
             else:
                 print("ADIOS")
+                menu_principal()
                 break
                 
 
@@ -117,6 +126,12 @@ while(True):
                 print("-----Matricula encontrada------")
                 matriculas=load_matriculas_json
                 mostrar_lista_con_diccionarios(matriculas)
+            else:
+                print("ADIOS")
+                menu_principal()
+                break
+            
+            
     if(op==8):
         while(True):
             op=mennun_filtros()
@@ -128,6 +143,7 @@ while(True):
                 filtros.append(filtros())
             else:
                 print("ADIOS")
+                menu_principal()
                 break
     if(op==9):
         while(True):
@@ -143,6 +159,7 @@ while(True):
                 mostrar_lista_con_diccionarios(trainers)
             if(op==4):
                 print("ADIOS")
+                menu_principal()
                 break
     else:
         break
