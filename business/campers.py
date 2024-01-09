@@ -53,11 +53,11 @@ def modificacion_campers():
    ## modificar campes
     campers=load_campers_json()
     print("---menu modificacion de camper---")
-    ingreseid=input("Ingrese la identificacion del camper: ")
     for camper in campers:
+        ingreseid=input("Ingrese la identificacion del camper: ")
         if camper["Identificacion"]==ingreseid:
             print("Camper encontrado")
-            print("El camper se encuentra en estado: ",camper,["estado"])
+            print("El camper se encuentra en estado: ",camper["estado"])
             print("-------Informacion del camper------")
             print(camper)
             print("¿Que opcion desea modificar del camper? ")
@@ -117,11 +117,12 @@ def modificacion_campers():
                 return
         else:
             print("la idetificaion no ha sido registrada.")
-            print("Desea seguir con la matricula automatica: ")
+            print("Desea corregir: ")
             print("1.Si")
             print("2.No")
             op=validar_opcion("Opcion: ",1,2)
-            break
+            if op==2:
+                break
 
 
             

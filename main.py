@@ -27,6 +27,7 @@ while(True):
                 input("Oprima cualquier tecla para salir")
             elif(op ==3):
                 campers=load_campers_json()
+                modificacion_campers
                 campers.append(modificacion_campers())
             elif(op == 4):
                 print("ADIOS")
@@ -36,8 +37,11 @@ while(True):
         while(True):
             op=menu_registro_prueba_inicial()
             if (op==1):
-                camper_aprobados=load_campers_json
-                camper_aprobados.append(registro_prueba_inicial())
+                registro_prueba_inicial=load_camper_aprobado_json()
+                registro_prueba_inicial=load_aulas_json()
+                guardar_json_camper_aprobado
+                camper_aprobados=load_camper_aprobado_json
+                camper_aprobados.append(id)
                 guardar_json_camper_aprobado()
             elif(op==2):
                 print("ADIOS")

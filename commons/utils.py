@@ -14,6 +14,17 @@ def guardar_json_filtros(lista):
         print("Error al decodificar el archivo JSON . El formato podría ser incorrecto.")
     except Exception as e:
         print("Error desconocido:")
+def guardar_json_registro_prueba_inicial(lista):
+    try:
+      with open(os.path.join("data", "registro_prueba_inicial.json"), "w") as archivo_json:
+        json.dump(lista, archivo_json, indent=2)
+        #print("La lista de campers ha sido guardada")
+    except FileNotFoundError:
+        print("El archivo no existe. Puede que aún no haya filtros guardados.")
+    except json.JSONDecodeError:
+        print("Error al decodificar el archivo JSON . El formato podría ser incorrecto.")
+    except Exception as e:
+        print("Error desconocido:")
 def guardar_json_campers(lista):
     try:
       with open(os.path.join("data", "campers.json"), "w") as archivo_json:
@@ -146,6 +157,14 @@ def load_campers_json():
         return lista
     except Exception as e:
       print(f"Error al guardar el archivo: {e}")
+def load_registro_prueba_inicial_json():
+    try:
+      with open(os.path.join("data", "registro_prueba_inicial.json"), 'r') as archivo_json:        
+        lista = json.load(archivo_json)
+        #print("La lista de campers ha sido guardada")
+        return lista
+    except Exception as e:
+      print(f"Error al guardar el archivo: {e}")
 def load_filtros_json():
     try:
       with open(os.path.join("data", "filtro.json"), 'r') as archivo_json:        
@@ -157,6 +176,14 @@ def load_filtros_json():
 def load_aulas_json():
     try:
       with open(os.path.join("data", "aulas.json"), 'r') as archivo_json:        
+        lista = json.load(archivo_json)
+        #print("La lista de campers ha sido guardada")
+        return lista
+    except Exception as e:
+      print(f"Error al guardar el archivo: {e}")
+def load_camper_aprobado_json():
+    try:
+      with open(os.path.join("data", "camper_aprobado.json"), 'r') as archivo_json:        
         lista = json.load(archivo_json)
         #print("La lista de campers ha sido guardada")
         return lista
@@ -183,7 +210,7 @@ def validar_opcion(enunciando,inferior,superior):
 def registro_prueba_inicial():
     campers=load_campers_json()
     campers=[]
-    camper_aprobados=[]
+    camper_aprobado=[]
     media =0
     texto="No inscrito"
     estado=""
@@ -223,6 +250,8 @@ def registro_prueba_inicial():
                                 camper["estado"]= "aprobado"
                                 camper_aprobados.append(id)
                                 print(camper_aprobados)
+                                camper_aprobados=load_camper_aprobado_json
+                                camper_aprobado.append(id)
                                 break
                     print("¡¡¡Felicitacioness!!!")
                     print("El camper ha sido aprobado para el curso: ")

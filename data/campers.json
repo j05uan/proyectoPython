@@ -12,7 +12,7 @@
   {
     "Identificacion": "32",
     "Apellido": "ejwigf",
-    "Nombre": "Carlos",
+    "Nombre": "Juan",
     "Direccion": "oiehaf",
     "Acudiente": "nfdnv",
     "Telefono": "354",
@@ -27,6 +27,26 @@
     "Acudiente": "dslknaf",
     "Telefono": "4321",
     "Celular": "12334",
+    "Estado": "inscrito"
+  },
+  {
+    "Identificacion": "1005325761",
+    "Apellido": "L\u00f3pez Amaya",
+    "Nombre": "Juan Pablo",
+    "Direccion": "Real de minas",
+    "Acudiente": "Carmen Amaya",
+    "Telefono": "6079898",
+    "Celular": "3124013599",
+    "Estado": "inscrito"
+  },
+  {
+    "Identificacion": "1005325761",
+    "Apellido": "L\u00f3pez ",
+    "Nombre": "Juan",
+    "Direccion": "Ca\u00f1averal",
+    "Acudiente": "Carmen",
+    "Telefono": "132443",
+    "Celular": "3182589714",
     "Estado": "inscrito"
   }
 ]
