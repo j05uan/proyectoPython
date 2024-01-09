@@ -3,7 +3,12 @@ from business.campers import *
 from commons.menusjp import *
 from commons.utils import *
 from business.trainer import *
-
+from business.aulas import*
+from business.rutas import*
+from business.trainer import*
+from business.filtros import*
+from business.horarios import*
+from business.matriculas import*
 campers =[] 
 camper_aprobados=[]
 trainers=[]
@@ -15,186 +20,112 @@ while(True):
             if(op == 1):
                 campers = load_campers_json()
                 campers.append(crear_campers())
-                guardar_json(campers,"w")
+                guardar_json_campers(campers)
             elif(op == 2):
                 campers = load_campers_json()
                 mostrar_lista_con_diccionarios(campers)
                 input("Oprima cualquier tecla para salir")
             elif(op ==3):
                 campers=load_campers_json()
-                modificacion_campers()
+                campers.append(modificacion_campers())
             elif(op == 4):
                 print("ADIOS")
                 break
     if(op == 2):
         while(True):
+            op=menu_registro_prueba_inicial()
+            if (op==1):
+                camper_aprobados.append(registro_prueba_inicial())
+            elif(op==2):
+                print("ADIOS")
+                break
+    if(op == 3):
+        while(True):
             op=menu_trainers()
             if(op==1):
                 trainers = load_trainers_json()
                 trainers.append(crear_trainers())
-                guardar_json(trainers,"w")
+                guardar_json_treiner(trainers)
             elif(op==2):
                 trainers = load_trainers_json()
                 mostrar_lista_con_diccionarios(trainers)
                 input("Oprima cualquier tecla para salir")
             elif(op==3):
                 trainers=load_trainers_json()
-                modificacion_trainers()
-    elif(op == 6):
-        break        
-
-print(campers)
-print("Prueba inicial")
-#rutas
-rutas=[{"nombre":"Ruta NodeJS",
-        "identificaciones":[ ]}, {"nombre":"Ruta Java","identificaciones": [ ]}, {"nombre":"Ruta NetCore", "identificacioes":[ ]}]
-#rgistro_de_prueba
-media =0
-texto="No inscrito"
-estado=""
-seguir=""
-while True:
-    if seguir =="no":
-        break
-    id= ""
-    while True:
-        id= input("Ingrese la identificacion del camper: ")
-        for camper in campers:
-            if camper["Identificacion"]==id:
-                texto="El estudiente esta inscrito "
-                estado="inscrito"
-                break
+                trainers.append(modificacion_trainers())
+    if(op == 4):
+        while(True):
+            op=menu_aulas()
+            if(op==1):
+                aulas = load_aulas_json()
+                aulas.append(crear_aulas())
+                guardar_json_aulas(aulas)
+            elif(op==2):
+                aulas = load_aulas_json()
+                Buscar_aula()
+            elif(op==3):
+                aulas = load_aulas_json()
+                aulas.append(modificacion_aulas())
+                guardar_json_aulas(aulas)
             else:
-                estado="No inscrito"
-                print(" El camper ", estado)
-                print("Selecione")
-                print("1.Corregir")
-                print("2.Salir ")
-                op=input("Ingrese Opcion: ")
-                if op== 2 :
-                    break
-        if(estado == "inscrito"):
-            break
-    print("El estado del camper es", estado)
-    if estado =="inscrito":
-        print("Ingrese los registros de la prueba inical: ")
-        nota1=float(input("ingrese la nota teorica: "))
-        nota2=float(input("ingrese la nota pracactica "))
-        media=(nota1+nota2)/2
-        if media >= 60:
-            estado= "aprobado" 
-            for camper in campers:
-                if camper["Identificacion"]==id:
-                    camper["estado"] = "aprobado"
-                    camper_aprobados.append(id)
-                    print(camper_aprobados)
-                    break
-            print("¡¡¡Felicitacioness!!!")
-            print("El camper ha sido aprobado para el curso: ")
-        else:
-            estado="reprobado"
-            for camper in campers:
-                if camper["Identificacion"]==id:
-                    camper["estado"] = "reprobado"
-                    camper_aprobados.remove(id)
-                    rutas[0]["identificaciones"].remove(id)
-                    # rutas[1]["identificaciones"].remove(id)
-                    # rutas[2]["identificaciones"].remove(id)
-            print("El camper no ha sido aprobado, suerte la proxima.")            
-    
-    ##Asignacion de ruta, para los camper con estado aprobado 
-    print(camper_aprobados)
-    cupos=99
+                print("ADIOS")
+                break
+    if (op==5):
+        while(True):
+            op=menu_rutas()
+            if(op==1):
+                rutas = load_rutas_json()
+                rutas.append(creacio_de_rutas())
+                guardar_json_rutas(rutas)
+            elif(op==2):
+                rutas = load_rutas_json()
+                mostrar_lista_con_diccionarios(rutas)
+            elif(op==3):
+                rutas = load_rutas_json()
+                rutas.append(modificacioR())
+                guardar_json_rutas()
 
-    if estado =="aprobado":
-        if cupos>66:
-            rutas[0]["identificaciones"].append(id)
-            cupos-=1
-            print("El camper pertenece a la Ruta NodeJS ")
-        if cupos<66 and cupos>33:
-            rutas[1]["identificaciones"].append(id)
-            cupos-=1
-            print("El camper pertenece a la Ruta Java ")
-        if cupos<33:
-            rutas[2]["identificaciones"].append(id)
-            cupos-=1
-            print("El camper pertenece a la Ruta NetCore ")
-        
-        print("¿Deseas seguir agregando notas a otro camper?")
-        seguir=input("Si desea seguir escriba si, de no ser asi, escriba no:")
+            else:
+                print("ADIOS")
+                break
+    if (op==6):
+        while(True):
+            op=menu_horario()
+            if(op==1):
+                horario=load_horarios_json()
+                horario.append(Crear_horario())
+                guardar_json_horarios(horario)
+            elif(op==2):
+                horario=load_horarios_json()
+                mostrar_horario()
+                input("")
+            else:
+                print("ADIOS")
+                break
+                
 
-ruta1="Ruta NodeJS"
-ruta2="Ruta Java"
-ruta3="Ruta NetCore"
-
-#area de entrenamiento 
-area1="Artemis"
-area2="Apolo"
-area3="Sputnik"
-for ruta in rutas:
-    if ruta["nombre"]==ruta1:
-        ruta["area"] = area1
-    if ruta["nombre"]==ruta2:
-        ruta["area"] = area2
-    if ruta["nombre"]==ruta3:
-        ruta["area"] = area3 
-#creacion de rutas
-Ruta_NodeJS=[{"Fundamentos de programacion": ["Introduccion a la algoritmia", "PSeInt", "Python"],
-        "Programacion Web": ["HTML", "CSS" , "Bootstrap"],
-        "Programacion formal": ["Java", "JavaScript", "C"], 
-        "Bases de datos" : ["Mysql", "MongoDb", "Postgresql"],
-        "Backend" : ["NetCore", "Spring Boot", "NodeJS y Express"]}]
-Ruta_Java=[{"Fundamentos de programacion": ["Introduccion a la algoritmia", "PSeInt", "Python"],
-        "Programacion Web": ["HTML", "CSS" , "Bootstrap"],
-        "Programacion formal": ["Java", "JavaScript", "C"],
-        "Bases de datos" : ["Mysql", "MongoDb", "Postgresql"], 
-        "Backend" : ["NetCore", "Spring Boot", "NodeJS y Express"]}]
-Ruta_NetCore=[{"Fundamentos de programacion": ["Introduccion a la algoritmia", "PSeInt", "Python"],
-        "Programacion Web": ["HTML", "CSS" , "Bootstrap"],
-        "Programacion formal": ["Java", "JavaScript", "C"], 
-        "Bases de datos" : ["Mysql", "MongoDb", "Postgresql"],  
-        "Backend" : ["NetCore", "Spring Boot", "NodeJS y Express"]}]
-##Trainers
-##modificacion de triners
-modificaionT:input("Ingrese el ID: ")
-for trainer in trainers:
-    print("-----Informacion Triner-----")
-    print(trainer)
-     
-    if trainer[id]==modificaionT:
-        idT=input("ingrese la nueva id")
-        trainer[id]==idT
-
-    
-##Asignacion de entrenadores a las rutas
-# for ruta in rutas:
-#     if ruta["nombre"] == ruta1 :
-#         ruta["entrenador"] = entrenador
-#         print(entrenador,"sera el entrenador de",ruta1)
-#     if ruta["nombre"] == ruta2 :
-#         ruta["entrenador"] = entrenador
-#         print(entrenador,"sera el entrenador de",ruta2)
-#     if ruta["nombre"] == ruta3 :
-#         ruta["entrenador"] = entrenador
-#         print(entrenador,"sera el entrenador de",ruta3)
-# print(rutas)
-    
-#fecha de inicio
-fecha_de_inicio=input("Ingrese la fecha de inicio: Dia/Mes/A帽o")
-for ruta in rutas:
-    if ruta["nombre"] == ruta1 :
-        ruta["fecha de inicio"] = fecha_de_inicio
-    if ruta["nombre"] == ruta2 :
-        ruta["fecha de inicio"] = fecha_de_inicio
-    if ruta["nombre"] == ruta2 :
-        ruta["fecha de inicio"] = fecha_de_inicio
-
-#fecha de finalizacion
-fecha_de_finalizacio=input("igrese la fecha de finalizacion: Dia/Mes/A帽o")
-for ruta in rutas:
-    if ruta["nombre"] == ruta1 :
-        ruta["fecha de finaizacion"] = fecha_de_finalizacio
-    if ruta["nombre"] == ruta2 :
-        ruta["fecha de finalizacion"] = fecha_de_finalizacio
-    if ruta["nombre"] == ruta2 :
-        ruta["fecha de finalizacion"] = fecha_de_finalizacio
+    if(op == 7):
+        while(True):
+            op=menu_matriculas()
+            if(op==1):
+                matriculas=load_matriculas_json
+                matriculas.append(marticular())
+                guardar_json_matriculas
+            if(op==2):
+                print("-----Matricula encontrada------")
+                matriculas=load_matriculas_json
+                mostrar_lista_con_diccionarios(matriculas)
+    if(op==7):
+        while(True):
+            op=mennun_filtros()
+            if(op==1):
+                filtros=load_filtros_json()
+                filtros.append(Creacion_de_filtro())
+            if(op==2):
+                filtros=load_filtros_json()
+                filtros.append(filtros())
+            else:
+                print("ADIOS")
+                break
+    if(op==8):
+        print("te amo")

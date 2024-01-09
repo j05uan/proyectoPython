@@ -40,14 +40,30 @@ def modificacion_trainers():
     trainers=load_trainers_json()
     modificaionT:input("Ingrese el ID: ")
     for trainer in trainers:
-        print("trainer encontrado")
-        print("-----Informacion Triner-----")
-        print("¿Que opcion desea modificar del trainer? ")
-        print( "1.id")
-        print("2.apellido")
-        print("3.nombre")
-        
-        
         if trainer[id]==modificaionT:
-            idT=input("ingrese la nueva id")
-            trainer[id]==idT
+            print("Trainer Encontrado")
+            print("-----Informacion Triner-----")
+            print(trainer)
+            print("¿Que opcion desea modificar del trainer? ")
+            print( "1.id")
+            print("2.apellido")
+            print("3.nombre")
+            op=validar_opcion("Opcion: ",1,3)
+            if op==1:
+                idT=input("ingrese la nueva id")
+                trainer[id]=idT
+                guardar_json(trainers,"w")
+                return
+            if op==2:
+                apT=input("Modifique el apellido: ")
+                trainer["apellidos"]=apT
+                guardar_json(trainers,"w")
+                return
+            if op==3:
+                nameT=input("Modifique los nombres: ")
+                trainer["nombres"]=nameT
+            else:
+                print("ADIOS")
+                return
+        else:
+            print("Trainer no encontrado ")

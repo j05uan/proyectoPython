@@ -16,14 +16,7 @@ def guardar_json(lista,modo):# si pasa "w" sobrescribe todo, si pasa "a" añade 
     except Exception as e:
         print("Error desconocido:")
 
-def load_campers_json():
-    try:
-      with open(os.path.join("data", "campers.json"), 'r') as archivo_json:        
-        lista_campers = json.load(archivo_json)
-        #print("La lista de campers ha sido guardada")
-        return lista_campers
-    except Exception as e:
-      print(f"Error al guardar el archivo: {e}")
+
 
 def crear_campers():
     
@@ -122,6 +115,13 @@ def modificacion_campers():
             if op == 9:
                 print("ADIOS")
                 return
-    print("la idetificaion no ha sido registrada.")
+        else:
+            print("la idetificaion no ha sido registrada.")
+            print("Desea seguir con la matricula automatica: ")
+            print("1.Si")
+            print("2.No")
+            op=validar_opcion("Opcion: ",1,2)
+            break
+
 
             
