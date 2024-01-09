@@ -115,7 +115,7 @@ while(True):
                 print("-----Matricula encontrada------")
                 matriculas=load_matriculas_json
                 mostrar_lista_con_diccionarios(matriculas)
-    if(op==7):
+    if(op==8):
         while(True):
             op=mennun_filtros()
             if(op==1):
@@ -127,5 +127,9 @@ while(True):
             else:
                 print("ADIOS")
                 break
-    if(op==8):
-        print("te amo")
+    if(op==9):
+        while(True):
+            op=menu_reportes()
+
+    else:
+        break
