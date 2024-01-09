@@ -29,6 +29,7 @@ def menu_principal():
     print("9. Reportes")
     print("10. Salir")       
     op=validar_opcion("Opcion: ",1,10)
+    return op
 #op=1
 def menu_campers():
     limpiar_pantalla()
@@ -105,6 +106,8 @@ def mennun_filtros():
     print("1.Crear filtro")
     print("2.Registrar filtro")
     print("3.Salir.")
+    op=validar_opcion("Opcion: ",1,3)
+    return op
 #op=9
 def menu_reportes():
     limpiar_pantalla()
