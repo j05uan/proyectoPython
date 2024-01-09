@@ -28,7 +28,7 @@ def menu_principal():
     print("8. Filtros")
     print("9. Reportes")
     print("10. Salir")       
-    op=validar_opcion("Opcion: ",1,6)
+    op=validar_opcion("Opcion: ",1,10)
     return op
 #op=1
 def menu_campers():
