@@ -40,9 +40,9 @@ def crear_trainers():
 ##modificacion de triners
 def modificacion_trainers():  
     trainers=load_trainers_json()
-    modificaionT:input("Ingrese el ID: ")
+    modificaionT=input("Ingrese el ID: ")
     for trainer in trainers:
-        if trainer[id]==modificaionT:
+        if trainer["id"]==modificaionT:
             print("Trainer Encontrado")
             print("-----Informacion Triner-----")
             print(trainer)
@@ -52,8 +52,8 @@ def modificacion_trainers():
             print("3.nombre")
             op=validar_opcion("Opcion: ",1,3)
             if op==1:
-                idT=input("ingrese la nueva id")
-                trainer[id]=idT
+                idT=input("ingrese la nueva id: ")
+                trainer["id"]=idT
                 guardar_json(trainers,"w")
                 return
             if op==2:

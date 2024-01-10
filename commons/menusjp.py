@@ -54,7 +54,7 @@ def menu_trainers():
     limpiar_pantalla()
     print("----------- Menú Trainers-----------")
     print("1. Crear trainer")
-    print("2. Buscar trainer")
+    print("2.  Mostrar trainer")
     print("3. Modificar trainer")
     print("4. Salir")
     op=validar_opcion("Opcion: ",1,4)
