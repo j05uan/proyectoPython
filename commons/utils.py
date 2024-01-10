@@ -29,7 +29,7 @@ def guardar_json_campers(lista):
     try:
       with open(os.path.join("data", "campers.json"), "w") as archivo_json:
         json.dump(lista, archivo_json, indent=2)
-        #print("La lista de campers ha sido guardada")
+        print("La lista de campers ha sido guardada")
     except FileNotFoundError:
         print("El archivo no existe. Puede que aún no haya filtros guardados.")
     except json.JSONDecodeError:
@@ -94,9 +94,9 @@ def guardar_json_matriculas(lista):
         print("Error al decodificar el archivo JSON . El formato podría ser incorrecto.")
     except Exception as e:
         print("Error desconocido:")
-def guardar_json_trainer(lista):
+def guardar_json_trainers(lista):
     try:
-      with open(os.path.join("data", "trainer.json"), "w") as archivo_json:
+      with open(os.path.join("data", "trainers.json"), "w") as archivo_json:
         json.dump(lista, archivo_json, indent=2)
         #print("La lista de campers ha sido guardada")
     except FileNotFoundError:
@@ -209,10 +209,11 @@ def validar_opcion(enunciando,inferior,superior):
 
 def registro_prueba_inicial():
     campers=load_campers_json()
-    camper_aprobado=[]
+    camper_aprobado=load_camper_aprobado_json()
     media =0
     estado="No Inscrito"
     op=0
+    notas=load_registro_prueba_inicial_json()
     while True:
         id= ""
         while True:
@@ -237,6 +238,14 @@ def registro_prueba_inicial():
                 nota1=float(input("ingrese la nota teorica: "))
                 nota2=float(input("ingrese la nota pracactica "))
                 media=(nota1+nota2)/2
+                diccionario={
+                            "id": id,
+                             "nota1":nota1,
+                             "nota2":nota2,
+                             "nota definitiva":media 
+                                }
+                notas.append(diccionario)
+                guardar_json_registro_prueba_inicial(notas)
                 if media >= 60:
                     estado= "aprobado" 
                     for camper in campers:
@@ -247,15 +256,20 @@ def registro_prueba_inicial():
                                 break
                     print("¡¡¡Felicitacioness!!!")
                     print("El camper ha sido aprobado para el curso: ")
+                    guardar_json_campers(campers)
                     guardar_json_camper_aprobado(camper_aprobado)
+                    break
                 else:
                     estado="reprobado"
                     for camper in campers:
                         if camper["Identificacion"]==id:
                             camper["Estado"] = "reprobado"
-                            camper_aprobado.remove(id)
+                            if(id in camper_aprobado):
+                                camper_aprobado.remove(id)
                     print("El camper no ha sido aprobado, suerte la proxima.")
+                    guardar_json_campers(campers)
                     guardar_json_camper_aprobado(camper_aprobado)
+                    break
         print("¿Desea agregar las notas de otro camper?")
         print("Selecione")
         print("1.Si")
@@ -263,6 +277,7 @@ def registro_prueba_inicial():
         op=validar_opcion("Ingrese Opcion: ",1,2)
         if op==2:
             guardar_json_campers(campers)
+            guardar_json_registro_prueba_inicial(notas)
             break
                     
 

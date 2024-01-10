@@ -22,6 +22,7 @@ def load_trainers_json():
     except Exception as e:
       print(f"Error al guardar el archivo: {e}")
 def crear_trainers():
+    json_trainers = load_trainers_json()
     trainers={}
     n_entrenadores=int(input("Ingrese la cantidad de entrenadores que hay disponibles: "))
     for i in range (n_entrenadores):
@@ -33,7 +34,8 @@ def crear_trainers():
             "apellidos":apellido_entrenador,
             "nombres":entrenador}
         trainers = diccionarioT
-    return trainers
+        json_trainers.append(trainers)
+    guardar_json(json_trainers,"w")
 
 ##modificacion de triners
 def modificacion_trainers():  

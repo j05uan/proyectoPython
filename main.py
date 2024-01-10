@@ -45,9 +45,8 @@ while(True):
         while(True):
             op=menu_trainers()
             if(op==1):
-                trainers = load_trainers_json()
-                trainers.append(crear_trainers())
-                guardar_json_trainer(trainers)
+                crear_trainers()
+                # guardar_json_trainer(trainers)
             elif(op==2):
                 trainers = load_trainers_json()
                 mostrar_lista_con_diccionarios(trainers)
@@ -80,13 +79,19 @@ while(True):
         while(True):
             op=menu_rutas()
             if(op==1):
+                limpiar_pantalla()
                 rutas = load_rutas_json()
                 rutas.append(creacio_de_rutas())
                 guardar_json_rutas(rutas)
             elif(op==2):
+                limpiar_pantalla()
+                
                 rutas = load_rutas_json()
                 mostrar_lista_con_diccionarios(rutas)
+                input("Oprima cualquier tecla para salir")
             elif(op==3):
+                limpiar_pantalla()
+                
                 rutas = load_rutas_json()
                 rutas.append(modificacioR())
                 guardar_json_rutas()
@@ -99,10 +104,12 @@ while(True):
         while(True):
             op=menu_horario()
             if(op==1):
+                limpiar_pantalla()
                 horario=load_horarios_json()
                 horario.append(Crear_horario())
                 guardar_json_horarios(horario)
             elif(op==2):
+                limpiar_pantalla()
                 horario=load_horarios_json()
                 mostrar_horario()
                 input("")
@@ -114,10 +121,12 @@ while(True):
         while(True):
             op=menu_matriculas()
             if(op==1):
+                limpiar_pantalla()
                 matriculas=load_matriculas_json
                 matriculas.append(marticular())
                 guardar_json_matriculas
             if(op==2):
+                limpiar_pantalla()
                 print("-----Matricula encontrada------")
                 matriculas=load_matriculas_json
                 mostrar_lista_con_diccionarios(matriculas)
@@ -128,9 +137,11 @@ while(True):
         while(True):
             op=mennun_filtros()
             if(op==1):
+                limpiar_pantalla()
                 filtros=load_filtros_json()
                 filtros.append(Creacion_de_filtro())
             if(op==2):
+                limpiar_pantalla()
                 filtros=load_filtros_json()
                 filtros.append(filtros())
             else:
@@ -140,15 +151,19 @@ while(True):
         while(True):
             op=menu_reportes()
             if(op==1):
-                campers=load_campers_json
+                limpiar_pantalla()
+                campers=load_campers_json()
                 mostrar_lista_con_diccionarios(campers)
             if(op==2):
+                limpiar_pantalla()
                 camper_aprobados=load_camper_aprobado_json(camper_aprobados)
                 mostrar_lista_con_diccionarios(camper_aprobados)
             if(op==3):
+                limpiar_pantalla()
                 trainers=load_trainers_json()
                 mostrar_lista_con_diccionarios(trainers)
             if(op==4):
+                limpiar_pantalla()                
                 print("ADIOS")
                 break
     elif(op==10):

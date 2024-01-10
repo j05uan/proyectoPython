@@ -17,7 +17,7 @@
     "Acudiente": "nfdnv",
     "Telefono": "354",
     "Celular": "789",
-    "Estado": "inscrito"
+    "Estado": "aprobado"
   },
   {
     "Identificacion": "123",
@@ -37,16 +37,6 @@
     "Acudiente": "Carmen Amaya",
     "Telefono": "6079898",
     "Celular": "3124013599",
-    "Estado": "inscrito"
-  },
-  {
-    "Identificacion": "1005325761",
-    "Apellido": "L\u00f3pez ",
-    "Nombre": "Juan",
-    "Direccion": "Ca\u00f1averal",
-    "Acudiente": "Carmen",
-    "Telefono": "132443",
-    "Celular": "3182589714",
     "Estado": "inscrito"
   }
 ]
