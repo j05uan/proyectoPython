@@ -14,43 +14,48 @@ def load_rutas_json():
     except Exception as e:
       print(f"Error al guardar el archivo: {e}")
 def creacio_de_rutas():
+    rutas = load_rutas_json()
     diccionario={ }
     print("-----Creacion de rutas------")
     ruta=input("Ingrese el nombre de la ruta: ")
     print("Fundamentos de programacion")
     print("OPCIONES:")
     print("[Introduccion a la algoritmia, PSeInt, Python]")
-    FP=input("Ingrese los temas que se van a ver:")
+    introduccion=input("Ingrese los temas que se van a ver:")
     print("Programacion web ")
     print("OPCIONES:")
     print("[HTML, CSS , Bootstrap]")
-    PW=input("Ingrese los temas que se van a ver:")
+    pweb=input("Ingrese los temas que se van a ver:")
     print("Programacionn formal")
     print("OPCIONES:")
     print("[Java, JavaScript, C]")
-    PF=input("Ingrese los temas que se van a ver:")
+    pformal=input("Ingrese los temas que se van a ver:")
     print("Bases de datos")
     print("OPCIONES:")
     print("[Mysql, MongoDb, Postgresql]")
-    BD=input("Ingrese los temas que se van a ver:")
+    basesdatos=input("Ingrese los temas que se van a ver:")
     print("Backend")
     print("OPCIONES:")
     print("[NetCore, Spring Boot, NodeJS y Express]")
-    B=input("Ingrese los temas que se van a ver:")
+    backend=input("Ingrese los temas que se van a ver:")
     diccionario= {
         "Ruta":ruta,
-        "Fundamentos de programacion":FP,
-        "Programacion Web":PW,
-        "Programacion formal":PF,
-        "Bases de datos" :BD,
-        "Backend" :B,
+        "Fundamentos de programacion":introduccion,
+        "Programacion Web":pweb,
+        "Programacion formal":pformal,
+        "Bases de datos" :basesdatos,
+        "Backend" :backend,
         "identificaciones":[]
     }
+    rutas.append(diccionario)
+    print(rutas)
+    guardar_json_rutas(rutas)
+    
+    
 
 ##Modificacion de rutas
 def modificacioR():
     rutas=load_rutas_json()
-    diccionario={}
     nameR=input("Ingrese el nombre de la ruta: ")
     for ruta in rutas:
         if ruta[ruta]==nameR:

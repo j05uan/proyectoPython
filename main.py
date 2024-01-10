@@ -56,23 +56,21 @@ while(True):
                 trainers.append(modificacion_trainers())
             elif(op == 4):
                 print("ADIOS")
-                menu_principal()
                 break
     elif(op == 4):
         while(True):
             op=menu_aulas()
             if(op==1):
-                aulas = load_aulas_json()
-                aulas.append(crear_aulas())
-                guardar_json_aulas(aulas)
+                crear_aulas()                
             elif(op==2):
                 aulas = load_aulas_json()
                 Buscar_aula()
+                input("Oprima cualquier tecla para salir")
+                
             elif(op==3):
-                aulas = load_aulas_json()
-                aulas.append(modificacion_aulas())
-                guardar_json_aulas(aulas)
-            else:
+                modificacion_aulas()
+                
+            elif(op==4):
                 print("ADIOS")
                 break
     elif (op==5):
@@ -80,9 +78,7 @@ while(True):
             op=menu_rutas()
             if(op==1):
                 limpiar_pantalla()
-                rutas = load_rutas_json()
-                rutas.append(creacio_de_rutas())
-                guardar_json_rutas(rutas)
+                creacio_de_rutas()
             elif(op==2):
                 limpiar_pantalla()
                 
@@ -96,7 +92,7 @@ while(True):
                 rutas.append(modificacioR())
                 guardar_json_rutas()
 
-            else:
+            elif(op == 4):
                 print("ADIOS")
 
                 break
@@ -113,7 +109,7 @@ while(True):
                 horario=load_horarios_json()
                 mostrar_horario()
                 input("")
-            else:
+            elif(op == 3):
                 print("ADIOS")
 
                 break            
@@ -121,30 +117,23 @@ while(True):
         while(True):
             op=menu_matriculas()
             if(op==1):
-                limpiar_pantalla()
-                matriculas=load_matriculas_json
-                matriculas.append(marticular())
-                guardar_json_matriculas
-            if(op==2):
-                limpiar_pantalla()
+                marticular()
+            if(op==2):   
                 print("-----Matricula encontrada------")
                 matriculas=load_matriculas_json
                 mostrar_lista_con_diccionarios(matriculas)
-            else:
+            elif(op == 4):
                 print("ADIOS")
                 break       
     elif(op==8):
         while(True):
             op=mennun_filtros()
             if(op==1):
-                limpiar_pantalla()
-                filtros=load_filtros_json()
-                filtros.append(Creacion_de_filtro())
+                Creacion_de_filtro()
+                print("precione cualquier tecla para salir")
             if(op==2):
-                limpiar_pantalla()
-                filtros=load_filtros_json()
-                filtros.append(filtros())
-            else:
+                filtro()
+            elif(op == 3):
                 print("ADIOS")
                 break
     elif(op==9):

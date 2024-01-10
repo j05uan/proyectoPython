@@ -96,7 +96,7 @@ def menu_matriculas():
     print("1. Crear Matriculas")
     print("2. Modificar Matriuclas")
     print("3. Salir")
-    op=validar_opcion("Opcion: ",1,43)
+    op=validar_opcion("Opcion: ",1,3)
     return op
 #op=8
 def mennun_filtros():

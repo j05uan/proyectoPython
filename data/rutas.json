@@ -1,24 +1,89 @@
-
 [
-    {"Ruta":"Ruta_NodeJS","Fundamentos de programacion": ["Introduccion a la algoritmia", "PSeInt", "Python"],
-    "Programacion Web": ["HTML", "CSS" , "Bootstrap"],
-    "Programacion formal": ["Java", "JavaScript", "C"], 
-    "Bases de datos" : ["Mysql", "MongoDb", "Postgresql"],
-    "Backend" : ["NetCore", "Spring Boot", "NodeJS y Express"],
-    "Identificacions":[]},
-
-    {"Ruta":"Ruta_Java","Fundamentos de programacion": ["Introduccion a la algoritmia", "PSeInt", "Python"],
-    "Programacion Web": ["HTML", "CSS" , "Bootstrap"],
-    "Programacion formal": ["Java", "JavaScript", "C"], 
-    "Bases de datos" : ["Mysql", "MongoDb", "Postgresql"],
-    "Backend" : ["NetCore", "Spring Boot", "NodeJS y Express"],
-    "Identificacions":[]
-},
-
-    {"Ruta":"Ruta_NetCore","Fundamentos de programacion": ["Introduccion a la algoritmia", "PSeInt", "Python"],
-    "Programacion Web": ["HTML", "CSS" , "Bootstrap"],
-    "Programacion formal": ["Java", "JavaScript", "C"], 
-    "Bases de datos" : ["Mysql", "MongoDb", "Postgresql"],  
-    "Backend" : ["NetCore", "Spring Boot", "NodeJS y Express"],
-    "Identificacions":[]}
+  {
+    "Ruta": "Ruta_NodeJS",
+    "Fundamentos de programacion": [
+      "Introduccion a la algoritmia",
+      "PSeInt",
+      "Python"
+    ],
+    "Programacion Web": [
+      "HTML",
+      "CSS",
+      "Bootstrap"
+    ],
+    "Programacion formal": [
+      "Java",
+      "JavaScript",
+      "C"
+    ],
+    "Bases de datos": [
+      "Mysql",
+      "MongoDb",
+      "Postgresql"
+    ],
+    "Backend": [
+      "NetCore",
+      "Spring Boot",
+      "NodeJS y Express"
+    ],
+    "Identificacions": []
+  },
+  {
+    "Ruta": "Ruta_Java",
+    "Fundamentos de programacion": [
+      "Introduccion a la algoritmia",
+      "PSeInt",
+      "Python"
+    ],
+    "Programacion Web": [
+      "HTML",
+      "CSS",
+      "Bootstrap"
+    ],
+    "Programacion formal": [
+      "Java",
+      "JavaScript",
+      "C"
+    ],
+    "Bases de datos": [
+      "Mysql",
+      "MongoDb",
+      "Postgresql"
+    ],
+    "Backend": [
+      "NetCore",
+      "Spring Boot",
+      "NodeJS y Express"
+    ],
+    "Identificacions": []
+  },
+  {
+    "Ruta": "Ruta_NetCore",
+    "Fundamentos de programacion": [
+      "Introduccion a la algoritmia",
+      "PSeInt",
+      "Python"
+    ],
+    "Programacion Web": [
+      "HTML",
+      "CSS",
+      "Bootstrap"
+    ],
+    "Programacion formal": [
+      "Java",
+      "JavaScript",
+      "C"
+    ],
+    "Bases de datos": [
+      "Mysql",
+      "MongoDb",
+      "Postgresql"
+    ],
+    "Backend": [
+      "NetCore",
+      "Spring Boot",
+      "NodeJS y Express"
+    ],
+    "Identificacions": []
+  }
 ]

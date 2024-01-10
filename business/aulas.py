@@ -69,7 +69,7 @@ def Buscar_aula():
             print("Selecione")
             print("1.Corregir")
             print("2.Salir ")
-            op=input("Ingrese Opcion: ",1,2)
+            op=validar_opcion("Ingrese Opcion: ",1,2)
             if op== 2 : 
                 break
 
@@ -92,24 +92,24 @@ def modificacion_aulas():
             op=validar_opcion("Opcion: ",1,5)
             # limpiar_pantalla()
             if op==1:
-                new_id=input("Ingrese la modificaion: ")
+                new_id=input("Ingrese la modificaion id : ")
                 aula["id"]=new_id
-                guardar_json(aulas,"w")
+                guardar_json_aulas(aulas)
                 return
             if op==2:
-                new_nombre=input("Ingrese la mmodificacion de los apellidos:")
+                new_nombre=input("Ingrese la mmodificacion de los nombre: ")
                 aula["nombre"]=new_nombre
-                guardar_json(aulas,"w")
+                guardar_json_aulas(aulas)
                 return
             if op==3:
-                new_jornada=input("Ingrese la mmodificacion de los nombres:")
+                new_jornada=input("Ingrese la mmodificacion de los jornada: ")
                 aula["jornada"]=new_jornada
-                guardar_json(aulas,"w")
+                guardar_json_aulas(aulas)
                 return
             if op==4:
-                new_horario=input("Ingrese la mmodificacion de la direccion:")
+                new_horario=input("Ingrese la mmodificacion de la horario: ")
                 aula["Direccion"]=new_horario
-                guardar_json(aulas,"w")
+                guardar_json_aulas(aulas)
                 return
             if op==5:
                 print("ADIOS")

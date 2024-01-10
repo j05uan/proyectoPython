@@ -22,15 +22,18 @@ def guardar_json(lista,modo):# si pasa "w" sobrescribe todo, si pasa "a" añade 
 ##Creacion de filtros
 def Creacion_de_filtro():
     filtros=load_filtros_json()
+    diccionario={}
     print("-----Creacion de filtro----")
     nombre=input("Ingrese el nombre del filtro: ")
     diccionario={
         "Filtro":nombre,
         "Calificaciones":[{"Identificacion":" ","nota":" "}]
-
     }
+    
     filtros.append(diccionario)
-    guardar_json_filtros(filtro)
+    print(filtros)
+    input("")
+    guardar_json_filtros(filtros)
 
 def filtro():
     campers = load_campers_json()
@@ -74,3 +77,4 @@ def filtro():
             op=validar_opcion("Opcion: ",1,2)
             if op==2:
                 break
+        guardar_json_filtros(filtros)

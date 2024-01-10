@@ -39,7 +39,7 @@ def guardar_json_campers(lista):
 
 def guardar_json_filtros(lista):
     try:
-      with open(os.path.join("data", "filtro.json"), "w") as archivo_json:
+      with open(os.path.join("data", "filtros.json"), "w") as archivo_json:
         json.dump(lista, archivo_json, indent=2)
         #print("La lista de campers ha sido guardada")
     except FileNotFoundError:
@@ -149,6 +149,14 @@ def load_horarios_json():
         return lista
     except Exception as e:
       print(f"Error al guardar el archivo: {e}")
+def load_rutas_json():
+    try:
+      with open(os.path.join("data", "rutas.json"), 'r') as archivo_json:        
+        lista = json.load(archivo_json)
+        #print("La lista de trainers ha sido guardada")
+        return lista
+    except Exception as e:
+      print(f"Error al guardar el archivo: {e}")
 def load_campers_json():
     try:
       with open(os.path.join("data", "campers.json"), 'r') as archivo_json:        
@@ -167,7 +175,7 @@ def load_registro_prueba_inicial_json():
       print(f"Error al guardar el archivo: {e}")
 def load_filtros_json():
     try:
-      with open(os.path.join("data", "filtro.json"), 'r') as archivo_json:        
+      with open(os.path.join("data", "filtros.json"), 'r') as archivo_json:        
         lista = json.load(archivo_json)
         #print("La lista de campers ha sido guardada")
         return lista
