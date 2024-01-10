@@ -94,7 +94,7 @@ def guardar_json_matriculas(lista):
         print("Error al decodificar el archivo JSON . El formato podría ser incorrecto.")
     except Exception as e:
         print("Error desconocido:")
-def guardar_json_treiner(lista):
+def guardar_json_trainer(lista):
     try:
       with open(os.path.join("data", "trainer.json"), "w") as archivo_json:
         json.dump(lista, archivo_json, indent=2)
@@ -209,34 +209,28 @@ def validar_opcion(enunciando,inferior,superior):
 
 def registro_prueba_inicial():
     campers=load_campers_json()
-    campers=[]
     camper_aprobado=[]
     media =0
-    texto="No inscrito"
-    estado=""
-    seguir=""
+    estado="No Inscrito"
+    op=0
     while True:
-        if seguir =="no":
-            break
         id= ""
         while True:
             id= input("Ingrese la identificacion del camper: ")
             for camper in campers:
+                
                 if camper["Identificacion"]==id:
-                    texto="El estudiente esta inscrito "
                     estado="inscrito"
                     break
-                else:
-                    estado="No inscrito"
-                    print(" No se encontro el camper ")
-                    print("Selecione")
-                    print("1.Corregir")
-                    print("2.Salir ")
-                    op=validar_opcion("Ingrese Opcion: ",1,2)
-                    if op== 2 :
-                        break
-            if(estado == "inscrito"):
-                break
+            if(estado == "No Inscrito"):
+                 estado="No Inscrito"
+                 print(" No se encontro el camper ")
+                 print("Selecione")
+                 print("1.Corregir")
+                 print("2.Salir ")
+                 op=validar_opcion("Ingrese Opcion: ",1,2)
+            if op== 2 and estado=="No Inscrito" :
+                 break
             print("El estado del camper es", estado)
             if estado =="inscrito":
                 print("Ingrese los registros de la prueba inical: ")
@@ -247,22 +241,28 @@ def registro_prueba_inicial():
                     estado= "aprobado" 
                     for camper in campers:
                             if camper["Identificacion"]==id:
-                                camper["estado"]= "aprobado"
-                                camper_aprobados.append(id)
-                                print(camper_aprobados)
-                                camper_aprobados=load_camper_aprobado_json
+                                camper["Estado"]= "aprobado"
                                 camper_aprobado.append(id)
+                                print(camper_aprobado)
                                 break
                     print("¡¡¡Felicitacioness!!!")
                     print("El camper ha sido aprobado para el curso: ")
+                    guardar_json_camper_aprobado(camper_aprobado)
                 else:
                     estado="reprobado"
                     for camper in campers:
                         if camper["Identificacion"]==id:
-                            camper["estado"] = "reprobado"
-                            camper_aprobados.remove(id)
-                            #rutas[0]["identificaciones"].remove(id)
-                            # rutas[1]["identificaciones"].remove(id)
-                            # rutas[2]["identificaciones"].remove(id)
+                            camper["Estado"] = "reprobado"
+                            camper_aprobado.remove(id)
                     print("El camper no ha sido aprobado, suerte la proxima.")
+                    guardar_json_camper_aprobado(camper_aprobado)
+        print("¿Desea agregar las notas de otro camper?")
+        print("Selecione")
+        print("1.Si")
+        print("2.No(Salir) ")
+        op=validar_opcion("Ingrese Opcion: ",1,2)
+        if op==2:
+            guardar_json_campers(campers)
+            break
+                    
 

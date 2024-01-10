@@ -53,76 +53,81 @@ def modificacion_campers():
    ## modificar campes
     campers=load_campers_json()
     print("---menu modificacion de camper---")
-    for camper in campers:
+    while(True):
         ingreseid=input("Ingrese la identificacion del camper: ")
-        if camper["Identificacion"]==ingreseid:
-            print("Camper encontrado")
-            print("El camper se encuentra en estado: ",camper["estado"])
-            print("-------Informacion del camper------")
-            print(camper)
-            print("¿Que opcion desea modificar del camper? ")
-            print( "1.id")
-            print("2.apellido")
-            print("3.nombre")
-            print("4.direccion")
-            print("5.acudiente")
-            print("6.celular")
-            print("7.telefono")
-            print("8.estado")
-            print("9.Salir")
-            op=validar_opcion("Opcion: ",1,9)
-            # limpiar_pantalla()
-            if op==1:
-                new_id=input("Ingrese la modificaion: ")
-                camper["Identificacion"]=new_id
-                guardar_json(campers,"w")
-                return
-            if op==2:
-                new_apellido=input("Ingrese la mmodificacion de los apellidos:")
-                camper["Apellido"]=new_apellido
-                guardar_json(campers,"w")
-                return
-            if op==3:
-                new_nombre=input("Ingrese la mmodificacion de los nombres:")
-                camper["Nombre"]=new_nombre
-                guardar_json(campers,"w")
-                return
-            if op==4:
-                new_direccion=input("Ingrese la mmodificacion de la direccion:")
-                camper["Direccion"]=new_direccion
-                guardar_json(campers,"w")
-                return
-            if op==5:
-                new_acudiente=input("Ingrese la mmodificacion del nombre completo del acudiente:")
-                camper["Acudiente"]=new_acudiente
-                guardar_json(campers,"w")
-                return
-            if op==6:
-                new_celular=input("Ingrese la mmodificacion del numero celular:")
-                camper["Celular"]=new_celular
-                guardar_json(campers,"w")
-                return
-            if op==7:
-                new_telefono=input("Ingrese la mmodificacion del numero de telefono:")
-                camper["Telefono"]=new_telefono
-                guardar_json(campers,"w")
-                return
-            if op==8:
-                new_estado=input("Ingrese la mmodificacion del estado:")
-                camper["Estado"]=new_estado
-                guardar_json(campers,"w")
-                return
-            if op == 9:
-                print("ADIOS")
-                return
-        else:
-            print("la idetificaion no ha sido registrada.")
+        encontro=False
+        for camper in campers:
+            if camper["Identificacion"]==ingreseid:
+                encontro=True
+                print("Camper encontrado")
+                print("El camper se encuentra en estado: ",camper["Estado"])
+                print("-------Informacion del camper------")
+                print(camper)
+                print("¿Que opcion desea modificar del camper? ")
+                print( "1.id")
+                print("2.apellido")
+                print("3.nombre")
+                print("4.direccion")
+                print("5.acudiente")
+                print("6.celular")
+                print("7.telefono")
+                print("8.estado")
+                print("9.Salir")
+                op=validar_opcion("Opcion: ",1,9)
+                # limpiar_pantalla()
+                if op==1:
+                    new_id=input("Ingrese la modificaion: ")
+                    camper["Identificacion"]=new_id
+                    guardar_json(campers,"w")
+                    return
+                if op==2:
+                    new_apellido=input("Ingrese la mmodificacion de los apellidos:")
+                    camper["Apellido"]=new_apellido
+                    guardar_json(campers,"w")
+                    return
+                if op==3:
+                    new_nombre=input("Ingrese la mmodificacion de los nombres:")
+                    camper["Nombre"]=new_nombre
+                    guardar_json(campers,"w")
+                    return
+                if op==4:
+                    new_direccion=input("Ingrese la mmodificacion de la direccion:")
+                    camper["Direccion"]=new_direccion
+                    guardar_json(campers,"w")
+                    return
+                if op==5:
+                    new_acudiente=input("Ingrese la mmodificacion del nombre completo del acudiente:")
+                    camper["Acudiente"]=new_acudiente
+                    guardar_json(campers,"w")
+                    return
+                if op==6:
+                    new_celular=input("Ingrese la mmodificacion del numero celular:")
+                    camper["Celular"]=new_celular
+                    guardar_json(campers,"w")
+                    return
+                if op==7:
+                    new_telefono=input("Ingrese la mmodificacion del numero de telefono:")
+                    camper["Telefono"]=new_telefono
+                    guardar_json(campers,"w")
+                    return
+                if op==8:
+                    new_estado=input("Ingrese la mmodificacion del estado:")
+                    camper["Estado"]=new_estado
+                    guardar_json(campers,"w")
+                    return
+                if op == 9:
+                    print("ADIOS")
+                    return
+        if encontro==False:
             print("Desea corregir: ")
+            print("la idetificaion no ha sido registrada.")
             print("1.Si")
             print("2.No")
             op=validar_opcion("Opcion: ",1,2)
             if op==2:
-                break
+                encontro=True
+        if encontro==True:
+            break
 
 
             

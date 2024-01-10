@@ -31,29 +31,23 @@ while(True):
                 campers.append(modificacion_campers())
             elif(op == 4):
                 print("ADIOS")
-                menu_principal()
                 break
-    if(op == 2):
+    elif(op == 2):
         while(True):
             op=menu_registro_prueba_inicial()
             if (op==1):
-                registro_prueba_inicial=load_camper_aprobado_json()
-                registro_prueba_inicial=load_aulas_json()
-                guardar_json_camper_aprobado
-                camper_aprobados=load_camper_aprobado_json
-                camper_aprobados.append(id)
-                guardar_json_camper_aprobado()
+                print("-----Registro prueba inicial-----")
+                registro_prueba_inicial()
             elif(op==2):
                 print("ADIOS")
-                menu_principal()
                 break
-    if(op == 3):
+    elif(op == 3):
         while(True):
             op=menu_trainers()
             if(op==1):
                 trainers = load_trainers_json()
                 trainers.append(crear_trainers())
-                guardar_json_treiner(trainers)
+                guardar_json_trainer(trainers)
             elif(op==2):
                 trainers = load_trainers_json()
                 mostrar_lista_con_diccionarios(trainers)
@@ -65,7 +59,7 @@ while(True):
                 print("ADIOS")
                 menu_principal()
                 break
-    if(op == 4):
+    elif(op == 4):
         while(True):
             op=menu_aulas()
             if(op==1):
@@ -81,9 +75,8 @@ while(True):
                 guardar_json_aulas(aulas)
             else:
                 print("ADIOS")
-                menu_principal()
                 break
-    if (op==5):
+    elif (op==5):
         while(True):
             op=menu_rutas()
             if(op==1):
@@ -100,9 +93,9 @@ while(True):
 
             else:
                 print("ADIOS")
-                menu_principal()
+
                 break
-    if (op==6):
+    elif (op==6):
         while(True):
             op=menu_horario()
             if(op==1):
@@ -115,11 +108,9 @@ while(True):
                 input("")
             else:
                 print("ADIOS")
-                menu_principal()
-                break
-                
 
-    if(op == 7):
+                break            
+    elif(op == 7):
         while(True):
             op=menu_matriculas()
             if(op==1):
@@ -132,11 +123,8 @@ while(True):
                 mostrar_lista_con_diccionarios(matriculas)
             else:
                 print("ADIOS")
-                menu_principal()
-                break
-            
-            
-    if(op==8):
+                break       
+    elif(op==8):
         while(True):
             op=mennun_filtros()
             if(op==1):
@@ -147,9 +135,8 @@ while(True):
                 filtros.append(filtros())
             else:
                 print("ADIOS")
-                menu_principal()
                 break
-    if(op==9):
+    elif(op==9):
         while(True):
             op=menu_reportes()
             if(op==1):
@@ -163,7 +150,6 @@ while(True):
                 mostrar_lista_con_diccionarios(trainers)
             if(op==4):
                 print("ADIOS")
-                menu_principal()
                 break
-    else:
+    elif(op==10):
         break
