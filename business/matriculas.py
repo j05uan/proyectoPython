@@ -9,7 +9,7 @@ from business.rutas import*
 def marticular():
     campers=load_campers_json()
     horariosdisponibles=load_horarios_json()
-    cuposhabiles=-1
+    cuposhabiles=1
     print("------MATRICULAR----")
     camperid=input("ingrese la identificacion del camper: ")
     for camper in campers:

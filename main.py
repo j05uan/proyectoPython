@@ -131,7 +131,7 @@ while(True):
             if(op==1):
                 Creacion_de_filtro()
                 print("precione cualquier tecla para salir")
-            if(op==2):
+            elif(op==2):
                 filtro()
             elif(op == 3):
                 print("ADIOS")
@@ -140,20 +140,22 @@ while(True):
         while(True):
             op=menu_reportes()
             if(op==1):
-                limpiar_pantalla()
                 campers=load_campers_json()
                 mostrar_lista_con_diccionarios(campers)
-            if(op==2):
-                limpiar_pantalla()
-                camper_aprobados=load_camper_aprobado_json(camper_aprobados)
+                print("precione cualquier tecla para salir")
+                
+            elif(op==2):
+                camper_aprobados=load_camper_aprobado_json()
                 mostrar_lista_con_diccionarios(camper_aprobados)
-            if(op==3):
-                limpiar_pantalla()
+                print("precione cualquier tecla para salir")
+                
+            elif(op==3):
                 trainers=load_trainers_json()
                 mostrar_lista_con_diccionarios(trainers)
-            if(op==4):
-                limpiar_pantalla()                
+                print("precione cualquier tecla para salir")
+            elif(op==4):                
                 print("ADIOS")
                 break
     elif(op==10):
+        print("¡¡Muchas Gracias!!")
         break

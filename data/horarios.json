@@ -1,20 +1,20 @@
 [
-{
-  "id": "1",
-  "nombre": "apolo",
-  "jornada": "ma\u00c3\u00b1ana",
-  "horario": "6am-1pm",
-  "cupos": 33,
-  "campers": [],
-  "trainer": "Camilo"
-},
-{
-  "id": "2",
-  "nombre": "apolo",
-  "jornada": "tarde",
-  "horario": "6am-1pm",
-  "cupos": 33,
-  "campers": [],
-  "trainer": "Camilo"
-}
-]
+    {
+      "id": "1",
+      "nombre": "apolo",
+      "jornada": "ma\u00c3\u00b1ana",
+      "horario": "6am-1pm",
+      "cupos": 33,
+      "campers": [],
+      "trainer": "Camilo"
+    },
+    {
+      "id": "2",
+      "nombre": "apolo",
+      "jornada": "tarde",
+      "horario": "6am-1pm",
+      "cupos": 33,
+      "campers": [],
+      "trainer": "Camilo"
+    }
+    ]
